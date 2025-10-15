@@ -1,1 +1,15 @@
-<p>home works!</p>
+<section class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 bg-blue-50 h-screen p-12">
+<app-game-card
+  title=" Rock Paper Scissors ✊✋✌"
+  description="Choose rock, paper, or scissors and beat the computer!"
+  buttonText="Play Now"
+  (buttonClick)="navigateToGame()"
+></app-game-card>
+
+  <app-game-card
+    title="Coming Soon!"
+    description="More fun games are on the way!"
+    buttonText="Stay Tuned"
+    [disabled]="true"
+  ></app-game-card>
+</section>
