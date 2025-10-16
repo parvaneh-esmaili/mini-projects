@@ -1,17 +1,17 @@
-<div class="h-[76vh] text-white flex flex-col items-center justify-center">
-  <h1 class="text-5xl font-extrabold mb-12 tracking-tight drop-shadow-xl text-blue-600">🎮 Rock, Paper, Scissors</h1>
+<div class="h-fit md:h-[76vh] text-white flex flex-col items-center justify-center">
+  <h1 class=" hidden md:flex text-5xl font-extrabold mb-12 tracking-tight drop-shadow-xl text-blue-600">🎮 Rock, Paper, Scissors</h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-8 w-full max-w-6xl">
     <!-- PC Choice -->
-    <div class="bg-gradient-to-tr md:h-72 from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300">
-      <h2 class="text-2xl font-semibold mb-4 text-white"> Computer Choice</h2>
-      <p class="text-4xl font-bold text-white">{{ computerChoice }}</p>
+    <div class="bg-gradient-to-tr md:h-72 my-1 from-blue-500 to-indigo-600 rounded-3xl h-20 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex items-center justify-around md:flex-col md:justify-start">
+      <h2 class=" text-lg md:text-2xl font-semibold mb-4 text-white"> Computer Choice</h2>
+      <p class="text-lg md:text-4xl font-bold text-white">{{ computerChoice }}</p>
     </div>
 
     <!-- Winner -->
-    <div class="bg-gradient-to-tr md:h-72 from-rose-500 to-red-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-around">
-      <h2 class="text-2xl font-semibold mb-4">Game Result</h2>
-        <p class="bg-white text-red-700 hover:bg-blue-100 font-bold h-12 w-40 rounded-xl shadow-md transition " >Computer Score: {{computerScore}}</p>
+    <div class="bg-gradient-to-tr md:h-72 from-rose-500 to-red-600 rounded-3xl p-2 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex md:flex-col items-center justify-around">
+      <h2 class="md:text-2xl font-semibold mb-4 text-lg">Game Result</h2>
+        <p class="bg-white text-red-700 my-2 hover:bg-blue-100 font-bold h-12 w-40 rounded-xl shadow-md transition " >Computer Score: {{computerScore}}</p>
         <p class="bg-white text-red-700 hover:bg-blue-100 font-bold h-12 w-40 rounded-xl shadow-md " > your Score{{yourScore}}</p>
 
 
@@ -19,14 +19,14 @@
     </div>
 
     <!-- User Choice -->
-    <div class="bg-gradient-to-tr md:h-72 from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300">
-      <h2 class="text-2xl font-semibold mb-4 ">Your Choice</h2>
-      <p class="text-4xl font-bold mb-6 h-16">{{ yourChoice }}</p>
+    <div class="bg-gradient-to-tr md:h-72 from-blue-500 to-indigo-600 rounded-3xl h-20 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex items-center justify-around md:flex-col md:justify-start">
+      <h2 class="text-lg md:text-2xl font-semibold mb-4 text-white">Your Choice</h2>
+      <p class="text-lg md:text-4xl font-bold text-white">{{ yourChoice }}</p>
 
 
     </div>
   </div>
-  <p class="text-blue-700 text-3xl font-bold mt-6">Choose an option...</p>
+  <p class="text-blue-700 text-xl md:text-3xl font-bold mt-6">Choose an option...</p>
         <div class="flex flex-wrap justify-center gap-4 m-4">
         <button
           class="bg-white text-blue-700 border hover:bg-blue-100 font-bold py-3 px-6 rounded-xl shadow-md transition active:scale-95 duration-200"
