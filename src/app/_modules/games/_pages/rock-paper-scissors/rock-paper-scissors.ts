@@ -17,33 +17,38 @@ export class RockPaperScissors {
   winner: string = ''
 
   play(userChoice: string){
+    if(this.yourScore < 3 && this.computerScore < 3){
     this.yourChoice = userChoice
     const random = Math.floor(Math.random() * this.items.length)
     this.computerChoice = this.items[random]
 
-
     switch( true ){
       case 
       userChoice === this.computerChoice:
-      this.winner = ('مساوی')
-      this.yourScore++
-      this.computerScore++
+      this.winner = ('Drow')
 
       break;
       case 
       userChoice === 'rock✊' && this.computerChoice == 'scissors✌' ||
       userChoice === 'scissors✌' && this.computerChoice == 'paper✋' ||
       userChoice === 'paper✋' && this.computerChoice == 'rock✊':
-      this.winner = ('شما بردید');
+      this.winner = ('You');
       this.yourScore++
       break;
 
        default:
-        this.winner = ('کامپیوتر برد');
+        this.winner = 'Computer';
         this.computerScore++
     }
 
   }
-
+}
+reset(){
+  this.computerChoice = '';
+  this.yourChoice = '';
+  this.computerScore = 0 ; 
+  this.yourScore = 0 ; 
+  this.winner = '';
+}
 
 }
