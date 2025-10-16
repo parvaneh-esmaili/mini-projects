@@ -7,5 +7,43 @@ import { Component } from '@angular/core';
   styleUrl: './rock-paper-scissors.css'
 })
 export class RockPaperScissors {
+  items = ['rock✊', 'scissors✌', 'paper✋']
+
+
+  computerChoice : string = '';
+  yourChoice: string = '';
+  computerScore : number = 0 ; 
+  yourScore: number = 0 ; 
+  winner: string = ''
+
+  play(userChoice: string){
+    this.yourChoice = userChoice
+    const random = Math.floor(Math.random() * this.items.length)
+    this.computerChoice = this.items[random]
+
+
+    switch( true ){
+      case 
+      userChoice === this.computerChoice:
+      this.winner = ('مساوی')
+      this.yourScore++
+      this.computerScore++
+
+      break;
+      case 
+      userChoice === 'rock✊' && this.computerChoice == 'scissors✌' ||
+      userChoice === 'scissors✌' && this.computerChoice == 'paper✋' ||
+      userChoice === 'paper✋' && this.computerChoice == 'rock✊':
+      this.winner = ('شما بردید');
+      this.yourScore++
+      break;
+
+       default:
+        this.winner = ('کامپیوتر برد');
+        this.computerScore++
+    }
+
+  }
+
 
 }

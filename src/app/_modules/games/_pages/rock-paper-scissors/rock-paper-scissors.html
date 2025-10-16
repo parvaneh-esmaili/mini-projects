@@ -1,1 +1,50 @@
-<div class="h-12 bg-red-950"></div>
+<div class="h-[76vh] text-white flex flex-col items-center justify-center ">
+  <h1 class="text-5xl font-extrabold mb-12 tracking-tight drop-shadow-xl text-blue-600">🎮 سنگ، کاغذ، قیچی</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+    <!-- PC Choice -->
+    <div class="bg-gradient-to-tr h-80 from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300">
+      <h2 class="text-2xl font-semibold mb-4 text-white">انتخاب کامپیوتر</h2>
+      <p class="text-4xl font-bold text-white">{{ computerChoice }}</p>
+    </div>
+
+    <!-- Winner -->
+    <div class="bg-gradient-to-tr h-80 from-rose-500 to-red-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex flex-col items-center justify-around">
+      <h2 class="text-2xl font-semibold mb-4">نتیجه بازی</h2>
+      <p class="text-3xl font-bold h-24">{{ winner }}</p>
+      <div class="flex items-center justify-between gap-6">
+        <p class="bg-white text-red-700 hover:bg-blue-100 font-bold h-12 w-32 rounded-xl shadow-md transition " >امتیاز کامپیوتر: {{computerScore}}</p>
+        <p class="bg-white text-red-700 hover:bg-blue-100 font-bold h-12 w-32 rounded-xl shadow-md " >امتیاز شما: {{yourScore}}</p>
+      </div>
+
+
+    </div>
+
+    <!-- User Choice -->
+    <div class="bg-gradient-to-tr h-80 from-blue-500 to-indigo-600 rounded-3xl p-8 shadow-2xl text-center hover:scale-105 transition-transform duration-300">
+      <h2 class="text-2xl font-semibold mb-4 ">انتخاب شما</h2>
+      <p class="text-4xl font-bold mb-6 h-16">{{ yourChoice }}</p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <button
+          class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-6 rounded-xl shadow-md transition active:scale-95 duration-200"
+          (click)="play('rock✊')"
+        >
+          ✊ سنگ
+        </button>
+        <button
+          class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-6 rounded-xl shadow-md transition active:scale-95 duration-200"
+          (click)="play('paper✋')"
+        >
+          ✋ کاغذ
+        </button>
+        <button
+          class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-6 rounded-xl shadow-md transition active:scale-95 duration-200"
+          (click)="play('scissors✌')"
+        >
+          ✌ قیچی
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
