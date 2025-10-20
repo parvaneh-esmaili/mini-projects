@@ -5,26 +5,27 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-8 w-full max-w-6xl">
     <!-- PC Choice -->
     <div class="bg-gradient-to-tr md:h-72 my-1 from-blue-500 to-indigo-600 rounded-3xl h-20 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex items-center justify-around md:flex-col md:justify-start p-6">
-      <h2 class=" text-lg md:text-2xl font-semibold mb-4 text-white"> Computer Choice</h2>
-      <p class="text-lg md:text-4xl font-bold text-white">{{ mainNumber }}</p>
+      <h2 class=" text-lg md:text-2xl font-semibold mb-4 text-white">Remaining Chances </h2>
+      <p class="text-lg md:text-xl font-semibold leading-loose text-white"> You still have <span class="text-3xl">{{ try }}/5</span>  attempts remaining. </p>
+
     </div>
 
     <!-- Winner -->
     <div class="bg-gradient-to-tr md:h-72 from-rose-500 to-red-600 rounded-3xl p-2 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex md:flex-col items-center justify-around">
       <h2 class="md:text-2xl font-semibold mb-4 text-lg">Game Result</h2>
-        <p class="bg-white text-red-700 my-2 hover:bg-blue-100 font-bold h-full w-full rounded-xl shadow-md transition p-6 " >{{message}}</p>
+        <p class="bg-white text-red-700 my-2 hover:bg-blue-100 text-3xl leading-loose font-bold h-full w-full rounded-xl shadow-md transition p-6 " >{{message}} {{userNumber}}</p>
 
     </div>
 
     <!-- User Choice -->
     <div class="bg-gradient-to-tr md:h-72 from-blue-500 to-indigo-600 rounded-3xl h-20 shadow-2xl text-center hover:scale-105 transition-transform duration-300 flex items-center justify-around md:flex-col md:justify-start p-6">
       <h2 class="text-lg md:text-2xl font-semibold mb-4 text-white">Your Choice</h2>
-      <p class="text-lg md:text-4xl font-bold text-white">{{ userNumber }}</p>
-
-
+      @for (choice of userChoices; track choice) {
+      <p class="text-lg md:text-4xl font-bold text-white">{{ lastChoice }}</p>
+      }
     </div>
   </div>
-  <p class="text-blue-700 text-xl md:text-3xl font-bold mt-6">Choose an option...</p>
+  <p class="text-blue-700 text-xl md:text-3xl font-bold mt-6"> Enter A Number...</p>
         <div class="flex flex-wrap justify-center gap-4 m-4">
         <input type="text" [(ngModel)]="userNumber" class="bg-white text-blue-700 border font-bold py-3 px-6 rounded-xl shadow-md">
         <button
