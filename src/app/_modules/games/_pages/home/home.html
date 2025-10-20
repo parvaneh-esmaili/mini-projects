@@ -3,8 +3,18 @@
   title=" Rock Paper Scissors ✊✋✌"
   description="Choose rock, paper, or scissors and beat the computer!"
   buttonText="Play Now"
-  (buttonClick)="navigateToGame()"
+  (buttonClick)="navigateToGame('/rock-paper-scissors')"
 ></app-game-card>
+
+
+<app-game-card
+  title="Guess the Number 🔢"
+  description="Try to guess the number the computer is thinking of!"
+  buttonText="Play Now"
+  (buttonClick)="navigateToGame('/guess-the-number')"
+></app-game-card>
+
+
 
   <app-game-card
     title="Coming Soon!"
