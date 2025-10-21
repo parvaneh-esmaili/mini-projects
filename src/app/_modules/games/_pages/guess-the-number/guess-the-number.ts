@@ -54,6 +54,8 @@ reset() {
   this.message = '';
   this.winner = '';
   this.try = 5;
+  this.userChoices = [];
+  this.lastChoice = 0;
   this.mainNumber = Math.floor(Math.random() * 100);
 }
 
