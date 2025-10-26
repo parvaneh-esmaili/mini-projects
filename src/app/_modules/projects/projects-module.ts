@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { GamesRoutingModule } from './games-routing-module';
+import { GamesRoutingModule } from './projects-routing-module';
 
 
 @NgModule({
@@ -11,4 +11,4 @@ import { GamesRoutingModule } from './games-routing-module';
     GamesRoutingModule
   ]
 })
-export class GamesModule { }
+export class ProjectsModule { }

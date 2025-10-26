@@ -4,12 +4,12 @@ import { Footer } from "./_components/footer/footer";
 import { RouterModule } from "@angular/router";
 
 @Component({
-  selector: 'app-games',
+  selector: 'projects',
   imports: [Header, Footer, RouterModule],
-  templateUrl: './games.html',
-  styleUrl: './games.css',
+  templateUrl: './projects.html',
+  styleUrl: './projects.css',
   standalone: true
 })
-export class Games {
+export class Projects{
 
 }

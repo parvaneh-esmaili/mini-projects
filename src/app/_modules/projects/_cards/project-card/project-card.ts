@@ -2,12 +2,12 @@ import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-game-card',
+  selector: 'project-card',
   imports: [NgClass],
-  templateUrl: './game-card.html',
-  styleUrl: './game-card.css'
+  templateUrl: './project-card.html',
+  styleUrl: './project-card.css'
 })
-export class GameCard {
+export class ProjectCard {
   @Input() title!: string;
   @Input() description!: string;
   @Input() buttonText: string = 'Submit';

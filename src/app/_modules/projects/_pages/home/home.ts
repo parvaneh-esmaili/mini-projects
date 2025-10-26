@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { GameCard } from "../../_cards/game-card/game-card";
 import { Router } from '@angular/router';
+import { ProjectCard } from "../../_cards/project-card/project-card";
 
 @Component({
   selector: 'app-home',
-  imports: [GameCard],
+  imports: [ProjectCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class Home {
  constructor(private router: Router) {}
 
-  navigateToGame( game: string) {
-    this.router.navigate([`${game}`]);
+  navigateToGame( project: string) {
+    this.router.navigate([`${project}`]);
   }
 
 }
