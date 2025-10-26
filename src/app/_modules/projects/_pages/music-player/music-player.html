@@ -11,31 +11,13 @@
 
     <!-- کنترل‌ها -->
     <div class="flex items-center justify-between w-full px-6">
-      
-      <!-- عقب 10 ثانیه -->
-      <button class="h-10 w-10 rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
-        <i class="fa-solid fa-rotate-left"></i>
+        @for(item of buttons; track item){
+      <button [ngClass]="item.class" class="rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
+        <i [ngClass]="item.icon"></i>
       </button>
 
-      <!-- آهنگ قبلی -->
-      <button class="h-12 w-12 rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
-        <i class="fa-solid fa-backward"></i>
-      </button>
+        }
 
-      <!-- پخش -->
-      <button class="h-14 w-14 rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
-        <i class="fa-solid fa-play"></i>
-      </button>
-
-      <!-- آهنگ بعدی -->
-      <button class="h-12 w-12 rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
-        <i class="fa-solid fa-forward"></i>
-      </button>
-
-      <!-- جلو 10 ثانیه -->
-      <button class="h-10 w-10 rounded-full bg-white/10 text-white flex items-center justify-center shadow hover:bg-white/20 transition cursor-pointer">
-        <i class="fa-solid fa-rotate-right"></i>
-      </button>
 
     </div>
   </div>
