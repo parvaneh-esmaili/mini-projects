@@ -9,6 +9,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   standalone: true
 })
 export class MusicPlayer {
+currentVolume = 1;
 @ViewChild('audioRef') audioRef!: ElementRef<HTMLAudioElement>;
 
   buttons = [
@@ -73,4 +74,14 @@ export class MusicPlayer {
         break;
       }
    }
+
+volume(value: string) {
+  const audio = this.audioRef.nativeElement;
+  const numericValue = parseFloat(value);
+  this.currentVolume = Math.max(0, Math.min(1, numericValue));
+  audio.volume = this.currentVolume;
+}
+
+
+
 }
