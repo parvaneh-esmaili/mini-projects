@@ -23,11 +23,23 @@ export class MusicPlayer {
     {id: 1, img: '', title: 'اهنگ سنتی', singer: 'singer1', src: 'assets/musics/1.mp3'},
     {id: 2, img: '', title: 'اهنگ سنتی2', singer: 'singer2', src: 'assets/musics/2.mp3'},
     {id: 3, img: '', title: 'اهنگ بند ناف', singer: 'singer3', src: 'assets/musics/file.mp3'},
+    {id: 1, img: '', title: 'اهنگ سنتی', singer: 'singer1', src: 'assets/musics/1.mp3'},
+    {id: 2, img: '', title: 'اهنگ سنتی2', singer: 'singer2', src: 'assets/musics/2.mp3'},
+    {id: 3, img: '', title: 'اهنگ بند ناف', singer: 'singer3', src: 'assets/musics/file.mp3'}
   ];
   currentIndex = 0
   get currentMusic() {
   return this.musics[this.currentIndex];
 }
+
+  playMusic(index: number){
+  this.currentIndex = index;
+  const audio = this.audioRef.nativeElement;
+  audio.src = this.currentMusic.src;
+  audio.load();
+  audio.play();
+  console.log('play music');
+  }
 
   handleActions(action: string) {
     const audio = this.audioRef.nativeElement;

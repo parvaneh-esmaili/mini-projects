@@ -1,24 +1,11 @@
-<div class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 h-[100vh] w-full flex items-center justify-center text-white p-4">
-  <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-6">
+<div class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 h-[77vh] w-full flex items-center justify-center text-white p-4">
+  <div class="w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-6 md:h-[30rem]">
 
-    <!-- 🎵 لیست آهنگ‌ها (راست) -->
-    <div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
-      @for (music of musics; track music) {
-        <div class="h-28 bg-white/10 backdrop-blur-md rounded-2xl flex items-center gap-4 p-4 border border-white/20 hover:scale-105 transition-transform duration-300">
-          <div class="h-20 w-20 rounded-xl overflow-hidden shadow-md">
-            <img [src]="music.src" alt="{{music.title}}" class="h-full w-full object-cover" />
-          </div>
-          <div class="text-white space-y-1">
-            <p class="text-lg font-semibold truncate">{{music.title}}</p>
-            <p class="text-sm text-gray-300 truncate">{{music.singer}}</p>
-          </div>
-        </div>
-      }
-    </div>
-
-    <!-- 🎛 پلیر (چپ) -->
+    
+    <!-- 🎛 پلیر) -->
     <div class="w-full md:w-1/3 flex items-center justify-center">
-      <div class="w-80 max-w-sm bg-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between p-6 border border-white/20 shadow-xl space-y-6">
+      <div class="w-full h-full object-cover bg-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between p-6 border border-white/20 shadow-xl "
+      >
         <audio #audioRef [src]="currentMusic.src"></audio>
 
         <!-- تصویر آهنگ -->
@@ -36,11 +23,37 @@
         <div class="flex items-center justify-between w-full px-4">
           @for(btn of buttons; track btn.action){
             <button [ngClass]="btn.class" (click)="handleActions(btn.action)" class="rounded-full bg-white/10 shadow hover:bg-white/20 hover:scale-105 transition active:scale-95">
-              <i [ngClass]="btn.icon"></i>c
+              <i [ngClass]="btn.icon"></i>
             </button>
           }
         </div>
       </div>
+    </div>
+
+    <!-- 🎵 لیست آهنگ‌ها ) -->
+<div class="w-full overflow-y-auto flex flex-col items-baseline justify-start gap-6 scrollbar-hide">
+  @for (music of musics; track music) {
+  <div 
+    (click)="playMusic($index)"
+    class="h-28 w-full bg-white/10 backdrop-blur-md rounded-2xl flex items-center gap-4 p-4 border border-white/20 transition-transform duration-300 cursor-pointer active:scale-95"
+    [ngClass]="{
+      'glow-active': currentIndex === $index
+    }"
+  >
+    <div class="h-20 w-20 rounded-xl overflow-hidden shadow-md">
+      <img 
+      [src]="music.src" 
+      alt="{{music.title}}" 
+      class="h-full w-full object-cover"
+       />
+    </div>
+    <div class="text-white space-y-1">
+      <p class="text-lg font-semibold truncate">{{music.title}}</p>
+      <p class="text-sm text-gray-300 truncate">{{music.singer}}</p>
+    </div>
+  </div>
+}
+
     </div>
 
   </div>

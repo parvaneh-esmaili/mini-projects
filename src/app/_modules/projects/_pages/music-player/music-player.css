@@ -1,0 +1,28 @@
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 10px #ff00cc;
+    border-color: #ff00cc;
+  }
+    25% {
+    box-shadow: 0 0 10px #c300ff;
+    border-color: #c300ff;
+  }
+
+  50% {
+    box-shadow: 0 0 10px #8400ff;
+    border-color: #8400ff;
+  }
+
+    75% {
+    box-shadow: 0 0 10px #c300ff;
+    border-color: #c300ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff00cc;
+    border-color: #ff00cc;
+  }
+}
+
+.glow-active {
+  animation: borderGlow 8s linear infinite;
+}
