@@ -43,14 +43,22 @@ export class MusicPlayer {
       case 'forward10':
         audio.currentTime = Math.min(audio.currentTime + 10, audio.duration);
         break;
-      case 'prev':
-        this.currentIndex--
-        console.log(this.musics[this.currentIndex])
+     case 'prev':
+        if (this.currentIndex > 0) {
+        this.currentIndex--;
+        audio.src = this.currentMusic.src;
+        audio.load();
+        audio.play();
+      }
         break;
       case 'next':
-        this.currentIndex++
-        console.log(this.musics[this.currentIndex])
+        if (this.currentIndex < this.musics.length - 1) {
+        this.currentIndex++;
+        audio.src = this.currentMusic.src;
+        audio.load();
+        audio.play();
+      }
         break;
-    }
-  }
+      }
+   }
 }
