@@ -10,6 +10,34 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class MusicPlayer {
 currentVolume = 1;
+currentTime = 0;
+duration = 0;
+
+ngAfterViewInit() {
+  const audio = this.audioRef.nativeElement;
+
+  audio.addEventListener('loadedmetadata', () => {
+    this.duration = audio.duration;
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    this.currentTime = audio.currentTime;
+  });
+}
+
+formatTime(seconds: number): string {
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${min}:${sec < 10 ? '0' + sec : sec}`;
+}
+
+seek(value: string) {
+  const audio = this.audioRef.nativeElement;
+  const time = parseFloat(value);
+  audio.currentTime = time;
+  this.currentTime = time;
+}
+
 @ViewChild('audioRef') audioRef!: ElementRef<HTMLAudioElement>;
 
   buttons = [
@@ -75,12 +103,12 @@ currentVolume = 1;
       }
    }
 
-volume(value: string) {
-  const audio = this.audioRef.nativeElement;
-  const numericValue = parseFloat(value);
-  this.currentVolume = Math.max(0, Math.min(1, numericValue));
-  audio.volume = this.currentVolume;
-}
+   volume(value: string) {
+    const audio = this.audioRef.nativeElement;
+    const numericValue = parseFloat(value);
+    this.currentVolume = Math.max(0, Math.min(1, numericValue));
+    audio.volume = this.currentVolume;  
+  }
 
 
 
