@@ -12,7 +12,7 @@ export class MusicPlayer {
 currentVolume = 1;
 currentTime = 0;
 duration = 0;
-
+favorite: {id: number, title: string, singer: string, src: string, img: string}[] = [];
 ngAfterViewInit() {
   const audio = this.audioRef.nativeElement;
 
@@ -52,9 +52,9 @@ seek(value: string) {
     {id: 1, img: '', title: 'اهنگ سنتی', singer: 'singer1', src: 'assets/musics/1.mp3'},
     {id: 2, img: '', title: 'اهنگ سنتی2', singer: 'singer2', src: 'assets/musics/2.mp3'},
     {id: 3, img: '', title: 'اهنگ بند ناف', singer: 'singer3', src: 'assets/musics/file.mp3'},
-    {id: 1, img: '', title: 'اهنگ سنتی', singer: 'singer1', src: 'assets/musics/1.mp3'},
-    {id: 2, img: '', title: 'اهنگ سنتی2', singer: 'singer2', src: 'assets/musics/2.mp3'},
-    {id: 3, img: '', title: 'اهنگ بند ناف', singer: 'singer3', src: 'assets/musics/file.mp3'}
+    {id: 4, img: '', title: 'اهنگ سنتی', singer: 'singer1', src: 'assets/musics/1.mp3'},
+    {id: 5, img: '', title: 'اهنگ سنتی2', singer: 'singer2', src: 'assets/musics/2.mp3'},
+    {id: 6, img: '', title: 'اهنگ بند ناف', singer: 'singer3', src: 'assets/musics/file.mp3'}
   ];
   currentIndex = 0
   get currentMusic() {
@@ -110,6 +110,31 @@ seek(value: string) {
     audio.volume = this.currentVolume;  
   }
 
+addToFavoriteList(id: number){
+  const music = this.musics.find(m => m.id === id);
+  if (music && !this.favorite.some(f => f.id === music.id)) {
+    this.favorite.push(music);
+  }
+  console.log(this.favorite)
+}
 
+removeFromFavoriteList(id: number){
+  this.favorite = this.favorite.filter(f => f.id !== id);
+}
+
+toggleFavorite(id: number){
+  const music = this.musics.find(m => m.id === id);
+  if (!music) return;
+
+  const index = this.favorite.findIndex(f => f.id === id);
+  if (index > -1) {
+    this.favorite.splice(index, 1);
+  } else {
+    this.favorite.push(music);
+  }
+}
+  isFavorite(id: number): boolean {
+    return this.favorite.some(f => f.id === id);
+  }
 
 }
