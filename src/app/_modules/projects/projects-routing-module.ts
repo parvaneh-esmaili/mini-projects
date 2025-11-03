@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Home } from './_pages/home/home';
 import { Projects } from './projects';
 import { MusicPlayer } from './_pages/music-player/music-player';
+import { TodoList } from './_pages/todo-list/todo-list';
 
 const routes: Routes = [
   {
@@ -11,7 +12,9 @@ const routes: Routes = [
     children: [
       { path: '', component: Home, pathMatch: 'full' },
       {path: 'home', component: Home},
-      {path: 'music-player', component: MusicPlayer}
+      {path: 'music-player', component: MusicPlayer},
+      {path: 'todo-list', component: TodoList}
+
 
     ],
   },
