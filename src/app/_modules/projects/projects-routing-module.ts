@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '',
     component: Projects,
     children: [
-      { path: '', component: Home, pathMatch: 'full' },
+      {path: '', component: Home, pathMatch: 'full' },
       {path: 'home', component: Home},
       {path: 'music-player', component: MusicPlayer},
       {path: 'todo-list', component: TodoList}
