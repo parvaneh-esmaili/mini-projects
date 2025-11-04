@@ -1,26 +1,67 @@
-<div class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full grid grid-cols-4 gap-6 p-6">
+<div class="absolute bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full grid grid-cols-4 gap-6 p-6">
   <!-- New -->
   <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white">
     <h2 class="text-lg font-bold mb-2">🆕 New</h2>
     <p class="text-sm text-gray-300">Content related to newly added items.</p>
-    <p draggable="true">hhhhh</p>
+
+    <!-- دکمه افزودن آیتم -->
+    <button 
+      (click)="toggleMenu()" 
+      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl mb-4"
+    >
+      ➕ ADD NEW ITEM
+    </button>
+
+    <!-- لیست آیتم‌ها -->
+     @for( item of newItems; track item ){
+    <div 
+         draggable="true" 
+         (dragstart)="dragStartHandler($event)" 
+         class="cursor-move h-14 w-full bg-purple-500 border border-white/40 rounded-xl my-2 flex items-center px-4"
+    >
+      {{ item }}
+    </div>
+  }
   </div>
 
   <!-- Active -->
-  <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white">
+  <div 
+    class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white"
+    (dragover)="dropOverHandler($event)" 
+    (drop)="dragHandler($event)"
+  >
     <h2 class="text-lg font-bold mb-2">🔥 Active</h2>
     <p class="text-sm text-gray-300">Items currently in use or running.</p>
   </div>
 
   <!-- In Progress -->
-  <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white">
+  <div 
+    class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white"
+    (dragover)="dropOverHandler($event)" 
+    (drop)="dragHandler($event)"
+  >
     <h2 class="text-lg font-bold mb-2">⏳ In Progress</h2>
     <p class="text-sm text-gray-300">Tasks or projects that are underway.</p>
   </div>
 
   <!-- Completed -->
-  <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white">
+  <div 
+    class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow text-white"
+    (dragover)="dropOverHandler($event)" 
+    (drop)="dragHandler($event)"
+  >
     <h2 class="text-lg font-bold mb-2">✅ Completed</h2>
     <p class="text-sm text-gray-300">Items that have been finished or delivered.</p>
   </div>
 </div>
+@if(isMenuOpen){
+<div class="h-screen w-full bg-black/50 z-50 inset-0 relative flex items-center justify-center">
+  <div class="h-52 w-96 bg-purple-700 p-4 flex flex-col items-center justify-around rounded-xl border border-white/60">
+    <span (click)="closeMenu()" class="cursor-pointer">
+	&#10060;</span>
+    <p>Add New Item</p>
+    <input type="text" class="h-12 w-full bg-white/90 rounded-xl">
+    <button class="h-12 w-32 bg-pink-500 rounded-xl" (click)="addNewItem()">ADD</button>
+  </div>
+</div>
+}
