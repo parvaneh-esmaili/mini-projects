@@ -13,6 +13,13 @@ export class TodoList {
   newItems = ['hello'];
   draggedItem: HTMLElement | null = null;
 
+  constructor(){
+    const savedItems = localStorage.getItem('newItems');
+      if (savedItems) {
+    this.newItems = JSON.parse(savedItems);
+    }
+  }
+
   dragStartHandler(event: DragEvent) {
     this.draggedItem = event.target as HTMLElement;
   }
@@ -35,15 +42,22 @@ export class TodoList {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  addNewItem() {
-    this.newItems.push(this.item.value!);
-    this.isMenuOpen = false;
-      this.item = new FormControl<string>('');
-  }
+addNewItem() {
+  const value = this.item.value!;
+  this.newItems.push(value);
+  this.isMenuOpen = false;
+  this.item = new FormControl<string>('');
+  localStorage.setItem('newItems', JSON.stringify(this.newItems));
+}
 
 
   closeMenu(){
     this.isMenuOpen = false;
   }
+
+removeItem(itemToRemove: string) {
+  this.newItems = this.newItems.filter(item => item !== itemToRemove);
+  localStorage.setItem('newItems', JSON.stringify(this.newItems));
+}
 
 }
