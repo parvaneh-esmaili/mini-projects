@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css'
 })
 export class TodoList {
   isMenuOpen = false;
+  item = new FormControl<string>('');
   newItems = ['hello'];
   draggedItem: HTMLElement | null = null;
 
@@ -25,7 +27,6 @@ export class TodoList {
 
     if (this.draggedItem && dropZone) {
       dropZone.appendChild(this.draggedItem);
-      console.log('Item dropped into:', dropZone);
       this.draggedItem = null;
     }
   }
@@ -34,13 +35,15 @@ export class TodoList {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  addNewItem(){
+  addNewItem() {
+    this.newItems.push(this.item.value!);
     this.isMenuOpen = false;
+      this.item = new FormControl<string>('');
   }
+
 
   closeMenu(){
     this.isMenuOpen = false;
-
   }
 
 }

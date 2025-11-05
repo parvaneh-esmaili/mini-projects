@@ -57,11 +57,13 @@
 @if(isMenuOpen){
 <div class="h-screen w-full bg-black/50 z-50 inset-0 relative flex items-center justify-center">
   <div class="h-52 w-96 bg-purple-700 p-4 flex flex-col items-center justify-around rounded-xl border border-white/60">
-    <span (click)="closeMenu()" class="cursor-pointer">
-	&#10060;</span>
-    <p>Add New Item</p>
-    <input type="text" class="h-12 w-full bg-white/90 rounded-xl">
-    <button class="h-12 w-32 bg-pink-500 rounded-xl" (click)="addNewItem()">ADD</button>
+    <div class="flex items-center justify-between w-full ">
+      <div class="text-white font-bold">Add New Item</div>
+      <div (click)="closeMenu()" class="cursor-pointer">	&#10060; </div>
+    </div>
+
+    <input type="text" [formControl]="item" class="h-12 w-full bg-white/90 rounded-xl">
+    <button class="h-12 w-32 bg-pink-500 rounded-xl cursor-pointer" (click)="addNewItem()">ADD</button>
   </div>
 </div>
 }
