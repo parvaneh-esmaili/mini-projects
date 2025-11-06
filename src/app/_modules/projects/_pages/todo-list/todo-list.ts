@@ -41,15 +41,13 @@ export class TodoList {
   toggleMenu(){
     this.isMenuOpen = !this.isMenuOpen;
   }
-
-addNewItem() {
-  const value = this.item.value!;
-  this.newItems.push(value);
-  this.isMenuOpen = false;
-  this.item = new FormControl<string>('');
-  localStorage.setItem('newItems', JSON.stringify(this.newItems));
-}
-
+  addNewItem() {
+    const value = this.item.value!;
+    this.newItems.push(value);
+    this.isMenuOpen = false;
+    this.item = new FormControl<string>('');
+    localStorage.setItem('newItems', JSON.stringify(this.newItems));
+  }
 
   closeMenu(){
     this.isMenuOpen = false;

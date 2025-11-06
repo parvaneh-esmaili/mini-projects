@@ -7,7 +7,7 @@
     <!-- دکمه افزودن آیتم -->
     <button 
       (click)="toggleMenu()" 
-      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-xl mb-4 fas fa-plus-circle">
+      class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-xs rounded-xl mb-4 fas fa-plus-circle">
       ADD NEW ITEM
     </button>
 
@@ -16,7 +16,7 @@
     <div 
          draggable="true" 
          (dragstart)="dragStartHandler($event)" 
-         class="cursor-move h-14 w-full bg-purple-500 border border-white/40 rounded-xl my-2 flex items-center px-4 justify-between"
+         class=" fade-in-up cursor-move h-14 w-full bg-purple-500 border border-white/40 rounded-xl my-2 flex items-center px-4 justify-between"
     >
     <span>{{ item }}</span>
     <button (click)="removeItem(item)" class="text-white hover:text-red-500 fas fa-trash">
@@ -60,7 +60,7 @@
   </div>
 </div>
 @if(isMenuOpen){
-<div class="h-screen w-full bg-black/50 z-50 inset-0 relative flex items-center justify-center">
+<div class=" h-screen w-full bg-black/50 z-50 inset-0 relative flex items-center justify-center">
   <div class="h-52 w-96 bg-purple-700 p-4 flex flex-col items-center justify-around rounded-xl border border-white/60">
     <div class="flex items-center justify-between w-full ">
       <div class="text-white font-bold">Add New Item</div>
