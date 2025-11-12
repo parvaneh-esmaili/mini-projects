@@ -10,7 +10,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class TodoList {
   isMenuOpen = false;
   item = new FormControl<string>('');
-  newItems = ['hello'];
+  newItems = ['todo list works'];
   draggedItem: HTMLElement | null = null;
 
   constructor(){
