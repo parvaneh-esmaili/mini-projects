@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LoremMaker } from './lorem-maker';
 
-import { LuremMaker } from './lurem-maker';
 
-describe('LuremMaker', () => {
-  let component: LuremMaker;
-  let fixture: ComponentFixture<LuremMaker>;
+describe('LoremMaker', () => {
+  let component: LoremMaker;
+  let fixture: ComponentFixture<LoremMaker>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LuremMaker]
-    })
-    .compileComponents();
+      imports: [LoremMaker],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(LuremMaker);
+    fixture = TestBed.createComponent(LoremMaker);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
