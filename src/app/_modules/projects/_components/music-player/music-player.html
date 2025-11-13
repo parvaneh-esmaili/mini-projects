@@ -1,86 +1,111 @@
-<div class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-center justify-center text-white p-6">
+<div
+  class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-center justify-center text-white p-6"
+>
   <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-
     <!-- 💖 لیست مورد علاقه‌ها -->
-    <div class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]">
+    <div
+      class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]"
+    >
       <h2 class="text-white text-xl font-bold mb-4">🎧 مورد علاقه‌ها</h2>
       <div class="flex flex-col gap-4">
         @for (music of favorite; track music.id) {
-          <div class="flex items-center gap-4 bg-white/10 rounded-xl p-3 border border-white/20 hover:bg-white/20 transition">
-            <div class="h-16 w-16 rounded-lg overflow-hidden shadow-md">
-              <img [src]="music.img" alt="{{music.title}}" class="h-full w-full object-cover" />
-            </div>
-            <div class="flex-1">
-              <p class="text-base font-semibold truncate">{{ music.title }}</p>
-              <p class="text-sm text-gray-300 truncate">{{ music.singer }}</p>
-            </div>
-            <button (click)="toggleFavorite(music.id)" class="text-pink-500 hover:text-pink-300 transition">
-              <i class="fa-solid fa-heart"></i>
-            </button>
+        <div
+          class="flex items-center gap-4 bg-white/10 rounded-xl p-3 border border-white/20 hover:bg-white/20 transition"
+        >
+          <div class="h-16 w-16 rounded-lg overflow-hidden shadow-md">
+            <img
+              [src]="music.img"
+              alt="{{ music.title }}"
+              class="h-full w-full object-cover"
+            />
           </div>
-        }
-        @if(favorite.length === 0){
+          <div class="flex-1">
+            <p class="text-base font-semibold truncate">{{ music.title }}</p>
+            <p class="text-sm text-gray-300 truncate">{{ music.singer }}</p>
+          </div>
+          <button
+            (click)="toggleFavorite(music.id)"
+            class="text-pink-500 hover:text-pink-300 transition"
+          >
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </div>
+        } @if(favorite.length === 0){
         <div class="text-sm text-gray-300 mt-2">هنوز آهنگی اضافه نشده.</div>
-      }
+        }
       </div>
     </div>
 
     <!-- 🎛 پلیر -->
     <div class="col-span-1 flex items-center justify-center">
-      <div class="w-full h-full bg-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between p-6 border border-white/20 shadow-xl">
+      <div
+        class="w-full h-full bg-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between p-6 border border-white/20 shadow-xl"
+      >
         <audio #audioRef [src]="currentMusic.src"></audio>
 
         <!-- تصویر آهنگ -->
         <div class="w-64 h-64 rounded-xl overflow-hidden shadow-md">
-          <img [src]="currentMusic.img" alt="{{currentMusic.title}}" class="w-full h-full object-cover" />
+          <img
+            [src]="currentMusic.img"
+            alt="{{ currentMusic.title }}"
+            class="w-full h-full object-cover"
+          />
         </div>
 
         <!-- عنوان و خواننده -->
         <div class="text-center mt-4">
-          <div class="text-white text-xl font-semibold">{{ currentMusic.title }}</div>
+          <div class="text-white text-xl font-semibold">
+            {{ currentMusic.title }}
+          </div>
           <div class="text-gray-300 text-sm">{{ currentMusic.singer }}</div>
         </div>
 
         <!-- دکمه‌های کنترل -->
         <div class="flex items-center justify-between w-full px-4 mt-4">
           @for (btn of buttons; track btn.action) {
-            <button 
-              [ngClass]="btn.class" 
-              (click)="handleActions(btn.action)" 
-              class="rounded-full bg-white/10 shadow hover:bg-white/20 hover:scale-105 transition active:scale-95"
-            >
-              <i [ngClass]="btn.icon"></i>
-            </button>
+          <button
+            [ngClass]="btn.class"
+            (click)="handleActions(btn.action)"
+            class="rounded-full bg-white/10 shadow hover:bg-white/20 hover:scale-105 transition active:scale-95"
+          >
+            <i [ngClass]="btn.icon"></i>
+          </button>
           }
         </div>
 
         <!-- کنترل ولوم و زمان -->
         <div class="w-full mt-6 space-y-4">
           <div class="flex items-center justify-center gap-4">
-            <i 
-              [ngClass]="currentVolume === 0 ? 'fa-solid fa-volume-xmark' : currentVolume < 0.7 ? 'fa-solid fa-volume-low' : 'fa-solid fa-volume-high'" 
+            <i
+              [ngClass]="
+                currentVolume === 0
+                  ? 'fa-solid fa-volume-xmark'
+                  : currentVolume < 0.7
+                  ? 'fa-solid fa-volume-low'
+                  : 'fa-solid fa-volume-high'
+              "
               class="text-white text-xl"
             ></i>
-            <input 
-              type="range" 
-              min="0" 
-              max="1" 
-              step="0.01" 
-              [value]="currentVolume" 
-              (input)="volume($event.target.value)" 
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              [value]="currentVolume"
+              (input)="volume($event.target.value)"
               class="w-40 accent-purple-500"
             />
           </div>
 
           <div class="flex items-center justify-between text-sm text-gray-300">
             <span>{{ formatTime(currentTime) }}</span>
-            <input 
-              type="range" 
-              min="0" 
-              [max]="duration" 
-              step="0.01" 
-              [value]="currentTime" 
-              (input)="seek($event.target.value)" 
+            <input
+              type="range"
+              min="0"
+              [max]="duration"
+              step="0.01"
+              [value]="currentTime"
+              (input)="seek($event.target.value)"
               class="w-40 accent-white"
             />
             <span>{{ formatTime(duration) }}</span>
@@ -90,35 +115,50 @@
     </div>
 
     <!-- 🎵 لیست آهنگ‌ها -->
-    <div class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]">
+    <div
+      class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]"
+    >
       <h2 class="text-white text-xl font-bold mb-4">🎶 لیست آهنگ‌ها</h2>
       <div class="flex flex-col gap-4">
         @for (music of musics; track music) {
-          <div 
-            (click)="playMusic($index)" 
-            class="flex items-center gap-4 bg-white/10 rounded-xl p-3 border border-white/20 cursor-pointer hover:bg-white/20 transition"
-            [ngClass]="{ 'glow-active': currentIndex === $index }"
-          >
-            <div class="h-20 w-20 rounded-xl overflow-hidden shadow-md">
-              <img [src]="music.img" alt="{{music.title}}" class="h-full w-full object-cover" />
-            </div>
-
-            <div class="flex-1 space-y-1">
-              <p class="text-lg font-semibold truncate">{{ music.title }}</p>
-              <p class="text-sm text-gray-300 truncate">{{ music.singer }}</p>
-            </div>
-
-            <button 
-              (click)="toggleFavorite(music.id); $event.stopPropagation()" 
-              class="text-xl transition"
-              [ngClass]="isFavorite(music.id) ? 'text-pink-700' : 'text-white/40 hover:text-pink-300'"
-            >
-              <i [ngClass]="isFavorite(music.id) ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"></i>
-            </button>
+        <div
+          (click)="playMusic($index)"
+          class="flex items-center gap-4 bg-white/10 rounded-xl p-3 border border-white/20 cursor-pointer hover:bg-white/20 transition"
+          [ngClass]="{ 'glow-active': currentIndex === $index }"
+        >
+          <div class="h-20 w-20 rounded-xl overflow-hidden shadow-md">
+            <img
+              [src]="music.img"
+              alt="{{ music.title }}"
+              class="h-full w-full object-cover"
+            />
           </div>
+
+          <div class="flex-1 space-y-1">
+            <p class="text-lg font-semibold truncate">{{ music.title }}</p>
+            <p class="text-sm text-gray-300 truncate">{{ music.singer }}</p>
+          </div>
+
+          <button
+            (click)="toggleFavorite(music.id); $event.stopPropagation()"
+            class="text-xl transition"
+            [ngClass]="
+              isFavorite(music.id)
+                ? 'text-pink-700'
+                : 'text-white/40 hover:text-pink-300'
+            "
+          >
+            <i
+              [ngClass]="
+                isFavorite(music.id)
+                  ? 'fa-solid fa-heart'
+                  : 'fa-regular fa-heart'
+              "
+            ></i>
+          </button>
+        </div>
         }
       </div>
     </div>
-
   </div>
 </div>

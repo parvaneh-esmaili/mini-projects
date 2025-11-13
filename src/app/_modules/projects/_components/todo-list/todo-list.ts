@@ -5,7 +5,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-todo-list',
   imports: [ReactiveFormsModule],
   templateUrl: './todo-list.html',
-  styleUrl: './todo-list.css'
+  styleUrl: './todo-list.css',
 })
 export class TodoList {
   isMenuOpen = false;
@@ -13,10 +13,10 @@ export class TodoList {
   newItems = ['todo list works'];
   draggedItem: HTMLElement | null = null;
 
-  constructor(){
+  constructor() {
     const savedItems = localStorage.getItem('newItems');
-      if (savedItems) {
-    this.newItems = JSON.parse(savedItems);
+    if (savedItems) {
+      this.newItems = JSON.parse(savedItems);
     }
   }
 
@@ -38,9 +38,10 @@ export class TodoList {
     }
   }
 
-  toggleMenu(){
+  toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
   addNewItem() {
     const value = this.item.value!;
     this.newItems.push(value);
@@ -49,13 +50,12 @@ export class TodoList {
     localStorage.setItem('newItems', JSON.stringify(this.newItems));
   }
 
-  closeMenu(){
+  closeMenu() {
     this.isMenuOpen = false;
   }
 
-removeItem(itemToRemove: string) {
-  this.newItems = this.newItems.filter(item => item !== itemToRemove);
-  localStorage.setItem('newItems', JSON.stringify(this.newItems));
-}
-
+  removeItem(itemToRemove: string) {
+    this.newItems = this.newItems.filter((item) => item !== itemToRemove);
+    localStorage.setItem('newItems', JSON.stringify(this.newItems));
+  }
 }

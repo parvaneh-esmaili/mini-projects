@@ -1,10 +1,12 @@
-<section class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-start justify-center text-white gap-6 p-20">
+<section
+  class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-start justify-center text-white gap-6 p-20"
+>
   @for(project of projects; track project){
   <project-card
-    title= {{project.title}}
-    description= {{project.description}}
-    buttonText= {{project.buttonText}}
+    title="{{ project.title }}"
+    description="{{ project.description }}"
+    buttonText="{{ project.buttonText }}"
     (buttonClick)="navigateToGame(project.route)"
   ></project-card>
-}
+  }
 </section>

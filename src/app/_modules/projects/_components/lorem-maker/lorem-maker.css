@@ -20,3 +20,20 @@
 .animate-fade-in-out {
   animation: fade-in-out 3s ease-in-out forwards;
 }
+
+@keyframes shrink-width {
+  0% {
+    width: 100%;
+    
+  }
+  100% {
+    width: 0%;
+    
+  }
+}
+
+
+.liner-animate {
+  animation: shrink-width 3s linear forwards ;
+}
+
