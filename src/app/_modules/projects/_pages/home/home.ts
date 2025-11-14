@@ -31,8 +31,15 @@ export class Home {
       title: 'Lurem Maker',
       description:
         'Organize your tasks, set deadlines, and boost your productivity with this simple todo app.',
-      buttonText: 'Open Todo List',
+      buttonText: 'Open Lurem Maker',
       route: '/lurem-maker',
+    },
+        {
+      title: 'Quiz App',
+      description:
+        'Organize your tasks, set deadlines, and boost your productivity with this simple todo app.',
+      buttonText: 'Open Quiz App',
+      route: '/quiz-app',
     },
   ];
 

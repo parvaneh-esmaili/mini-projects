@@ -1,12 +1,14 @@
 <section
-  class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-start justify-center text-white gap-6 p-20"
+  class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen w-full flex items-start justify-center text-white p-10"
 >
-  @for(project of projects; track project){
-  <project-card
-    title="{{ project.title }}"
-    description="{{ project.description }}"
-    buttonText="{{ project.buttonText }}"
-    (buttonClick)="navigateToGame(project.route)"
-  ></project-card>
-  }
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+    @for (project of projects; track project) {
+      <project-card
+        [title]="project.title"
+        [description]="project.description"
+        [buttonText]="project.buttonText"
+        (buttonClick)="navigateToGame(project.route)"
+      ></project-card>
+    }
+  </div>
 </section>

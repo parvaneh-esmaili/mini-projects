@@ -5,6 +5,7 @@ import { Projects } from './projects';
 import { MusicPlayer } from './_components/music-player/music-player';
 import { TodoList } from './_components/todo-list/todo-list';
 import { LoremMaker } from './_components/lorem-maker/lorem-maker';
+import { QuizApp } from './_components/quiz-app/quiz-app';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'music-player', component: MusicPlayer },
       { path: 'todo-list', component: TodoList },
       { path: 'lurem-maker', component: LoremMaker },
+      { path: 'quiz-app', component: QuizApp }
     ],
   },
 ];
