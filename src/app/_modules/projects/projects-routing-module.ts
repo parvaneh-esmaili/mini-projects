@@ -6,6 +6,7 @@ import { MusicPlayer } from './_components/music-player/music-player';
 import { TodoList } from './_components/todo-list/todo-list';
 import { LoremMaker } from './_components/lorem-maker/lorem-maker';
 import { QuizApp } from './_components/quiz-app/quiz-app';
+import { PasswordGenerators } from './_components/password-generators/password-generators';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'music-player', component: MusicPlayer },
       { path: 'todo-list', component: TodoList },
       { path: 'lurem-maker', component: LoremMaker },
-      { path: 'quiz-app', component: QuizApp }
+      { path: 'quiz-app', component: QuizApp },
+      { path: 'Password-generator', component: PasswordGenerators}
     ],
   },
 ];

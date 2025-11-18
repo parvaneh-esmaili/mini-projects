@@ -12,36 +12,38 @@ import { ProjectCard } from '../../_cards/project-card/project-card';
 export class Home {
   constructor(private router: Router) {}
 
-  projects = [
-    {
-      title: '🎵 Music Player',
-      description:
-        'Listen to your favorite tracks, create playlists, and enjoy seamless audio playback.',
-      buttonText: 'Open Player',
-      route: '/music-player',
-    },
-    {
-      title: '📝 Todo List',
-      description:
-        'Organize your tasks, set deadlines, and boost your productivity with this simple todo app.',
-      buttonText: 'Open Todo List',
-      route: '/todo-list',
-    },
-    {
-      title: 'Lurem Maker',
-      description:
-        'Organize your tasks, set deadlines, and boost your productivity with this simple todo app.',
-      buttonText: 'Open Lurem Maker',
-      route: '/lurem-maker',
-    },
-        {
-      title: 'Quiz App',
-      description:
-        'Organize your tasks, set deadlines, and boost your productivity with this simple todo app.',
-      buttonText: 'Open Quiz App',
-      route: '/quiz-app',
-    },
-  ];
+projects = [
+  {
+    title: '🎵 Music Player',
+    description: 'Play and enjoy music.',
+    buttonText: 'Open Player',
+    route: '/music-player',
+  },
+  {
+    title: '📝 Todo List',
+    description: 'Manage your tasks easily.',
+    buttonText: 'Open Todo List',
+    route: '/todo-list',
+  },
+  {
+    title: '✍️ Lorem Maker',
+    description: 'Make random text quickly.',
+    buttonText: 'Generate Text',
+    route: '/lurem-maker',
+  },
+  {
+    title: '❓ Quiz App',
+    description: 'Answer fun quiz questions.',
+    buttonText: 'Start Quiz',
+    route: '/quiz-app',
+  },
+  {
+    title: '🔐 Password Generator',
+    description: 'Create strong passwords fast.',
+    buttonText: 'Generate Password',
+    route: '/password-generator',
+  },
+]
 
   navigateToGame(project: string) {
     this.router.navigate([`${project}`]);

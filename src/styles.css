@@ -1,11 +1,96 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #3B82F6;
-  --color-secondary: #60A5FA;
-  --color-accent: #2563EB;
-  --color-bg: #F0F9FF;
-  --color-surface: #E0F2FE;
-  --color-text: #1E3A8A;
-  --color-text-light: #FFFFFF;
+  --primary-color: #3B82F6;
+  --secondary-color: #60A5FA;
+  --accent-color: #2563EB;
+  --bg-color: #111827;
+  --surface-color: #1F2937; 
+  --text-color: #F9FAFB;  
+}
+
+@theme {
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--secondary-color);
+  --color-accent: var(--accent-color);
+  --color-bg: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-text: var(--text-color);
+}
+
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@utility container {
+  max-width: 27rem;
+  margin-inline: auto;
+
+  @variant sm {
+    max-width: 36rem;
+  }
+  @variant md {
+    max-width: 47rem;
+  }
+  @variant lg {
+    max-width: 62rem;
+  }
+  @variant xl {
+    max-width: 75rem;
+  }
+}
+
+html,
+body {
+  background: #060524;
+  font-family: var(--font-dana);
+  margin: 0;
+  /* height: auto; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Scrollbar width and height */
+::-webkit-scrollbar {
+  width: 0.6em;
+  height: 0.6em;
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05); 
+  border-radius: 1em;
+  margin-block: 0.2em;
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+}
+
+/* Dark mode track */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.4); 
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 1em;
+  border: 2px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Dark mode thumb */
+.dark ::-webkit-scrollbar-thumb {
+  border: 2px solid rgba(0,0,0,0.3);
+}
+
+/* Hover effect for thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+  border: 2px solid rgba(255,255,255,0.4);
 }
