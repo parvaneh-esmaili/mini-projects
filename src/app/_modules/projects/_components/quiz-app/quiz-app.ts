@@ -1,10 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-quiz-app',
-  imports: [NgClass],
+  imports: [NgClass, FormsModule],
   templateUrl: './quiz-app.html',
   styleUrl: './quiz-app.css'
 })
@@ -61,7 +62,6 @@ checkAnswer(selectedIndex: number) {
   if (this.currentQuestionIndex === this.questions.length - 1) {
       this.win = true;
     }
-
 }
 
 
@@ -96,6 +96,8 @@ prevBTN() {
 resetQuiz(){
   this.win = false;
   this.currentQuestionIndex = 0;
+  this.feedback = '';
+
 }
 
 }

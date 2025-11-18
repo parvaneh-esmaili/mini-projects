@@ -1,22 +1,35 @@
 <div class="h-screen w-full flex items-center justify-center">
   <div class="w-full max-w-xl bg-purple-700 p-6 rounded-lg shadow-lg text-white">
-<p>Question {{currentQuestionIndex + 1}} of {{questions.length}}</p>
-<p>Your Score is {{score}}</p>
-<p>{{ feedback }}</p>
+    <div class="flex items-center justify-between">
+      <p>Question {{currentQuestionIndex + 1}} of {{questions.length}}</p>
+      <p>Your Score is {{score}}</p>
+    </div>
+    <p class="h-7">{{ feedback }}</p>
+<div class="mb-6">
+  <p class="h-12 w-full bg-white/10 flex items-center px-4 rounded">
+    {{ questions[currentQuestionIndex].question }}
+  </p>
 
-      <div class="mb-6">
-        <p class="h-12 w-full bg-white/10 flex items-center px-4 rounded">
-          {{ questions[currentQuestionIndex].question }}
-        </p>
+  @for (opt of questions[currentQuestionIndex].options; track $index) {
+    <div class="flex items-center mt-2">
+      <input 
+        type="radio" 
+        name="optionGroup{{currentQuestionIndex}}" 
+        [value]="$index" 
+        [(ngModel)]="selectedIndex"
+        class="mr-2 h-4"
+      />
+      <label class="mr-2 h-12 bg-white/20 w-full">{{ opt }}</label>
+    </div>
+  }
 
-        @for ( opt of questions[currentQuestionIndex].options; track $index) {
-          <button
-            class="h-12 w-full bg-white/30 hover:bg-white/50 text-black rounded px-4 mt-2"
-            (click)="checkAnswer($index)">
-            {{ opt }}
-          </button>
-        }
-      </div>
+  <button 
+    class="h-12 w-full bg-green-500 hover:bg-green-600 text-white rounded px-4 mt-4"
+    (click)="checkAnswer(selectedIndex)">
+    Submit
+  </button>
+</div>
+
 <div class="flex items-center justify-between">
   <!-- دکمه قبلی -->
   <button 
