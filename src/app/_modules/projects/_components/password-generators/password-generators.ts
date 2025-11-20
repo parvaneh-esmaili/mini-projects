@@ -16,17 +16,41 @@ export class PasswordGenerators {
   upperCase: string = 'ABCDEFGHIGKLMNOPQRSTUVWXYZ';
   lowerCase: string = 'abcdefghijklmnopqrstuvwxyz';
 
+  exclude = {
+    special: true,
+    numbers: true,
+    upper: true,
+    lower: true,
+  };
+
   makePassword() {
-    this.password = '';
+    let allChars = '';
 
-    const allChars =
-      this.specialCharacters + this.numbers + this.upperCase + this.lowerCase;
-
-    for (let i = 0; i < this.passwordLength; i++) {
-      const passwordGenerator = Math.floor(Math.random() * allChars.length);
-
-      this.password += allChars.charAt(passwordGenerator);
+    if (this.exclude.special) {
+      allChars += this.specialCharacters;
     }
+    if (this.exclude.numbers) {
+      allChars += this.numbers;
+    }
+    if (this.exclude.upper) {
+      allChars += this.upperCase;
+    }
+    if (this.exclude.lower) {
+      allChars += this.lowerCase;
+    }
+
+    if (allChars.length === 0) {
+      this.password = 'No characters selected!';
+      return;
+    }
+
+    let generatedPassword = '';
+    for (let i = 0; i < this.passwordLength; i++) {
+      const randomIndex = Math.floor(Math.random() * allChars.length);
+      generatedPassword += allChars.charAt(randomIndex);
+    }
+
+    this.password = generatedPassword;
     console.log(this.password);
   }
 
