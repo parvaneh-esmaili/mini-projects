@@ -19,7 +19,7 @@ const routes: Routes = [
       { path: 'todo-list', component: TodoList },
       { path: 'lurem-maker', component: LoremMaker },
       { path: 'quiz-app', component: QuizApp },
-      { path: 'Password-generator', component: PasswordGenerators}
+      { path: 'password-generator', component: PasswordGenerators}
     ],
   },
 ];

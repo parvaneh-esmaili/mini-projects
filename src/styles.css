@@ -7,6 +7,11 @@
   --bg-color: #111827;
   --surface-color: #1F2937; 
   --text-color: #F9FAFB;  
+  --white-20: rgba(255, 255, 255, 0.2); 
+  --success: #22c55e;     /* Green-500 */
+  --neutral: #e5e7eb;     /* Gray-200 */
+  --text-muted: #6b7280;  /* Gray-500 */
+
 }
 
 @theme {
@@ -16,6 +21,9 @@
   --color-bg: var(--bg-color);
   --color-surface: var(--surface-color);
   --color-text: var(--text-color);
+  --color-white-20: var(--white-20);
+  --color-success: var(--success);
+  --color-text-muted: var(--text-muted)
 }
 
 @import 'tailwindcss';

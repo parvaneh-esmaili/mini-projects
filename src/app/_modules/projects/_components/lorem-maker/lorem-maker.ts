@@ -18,19 +18,19 @@ export class LoremMaker {
     {
       label: 'Add Sentence',
       icon: 'fa-plus-circle',
-      color: 'bg-green-500 hover:bg-green-600',
+      color: 'bg-accent hover:bg-primary',
       action: () => this.plusOne(),
     },
     {
       label: 'Delete Sentence',
       icon: 'fa-minus-circle',
-      color: 'bg-red-500 hover:bg-red-600',
+      color: 'bg-primary hover:bg-secondary',
       action: () => this.minusSentence(),
     },
     {
       label: 'Copy Paragraph',
       icon: 'fa-copy',
-      color: 'bg-blue-500 hover:bg-blue-600',
+      color: 'bg-secondary hover:bg-accent',
       action: () => this.copyText(),
     },
   ];
