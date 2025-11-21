@@ -70,22 +70,22 @@
 </div>
 @if(isMenuOpen){
 <div
-  class="h-screen w-full bg-black/50 z-50 inset-0 relative flex items-center justify-center"
+  class="h-screen w-full bg-black/70 z-50 inset-0 relative flex items-center justify-center"
 >
   <div
-    class="h-52 w-96 bg-purple-700 p-4 flex flex-col items-center justify-around rounded-xl border border-white/60"
+    class="h-52 w-96 bg-bg p-4 flex flex-col items-center justify-around rounded-xl border border-white-20"
   >
     <div class="flex items-center justify-between w-full">
-      <div class="text-white font-bold">Add New Item</div>
+      <div class=" font-bold">Add New Item</div>
       <div (click)="closeMenu()" class="cursor-pointer fas fa-times"></div>
     </div>
     <input
       type="text"
       [formControl]="item"
-      class="h-12 w-full bg-white/90 rounded-xl p-3"
+      class="h-12 w-full bg-surface rounded-xl p-3"
     />
     <button
-      class="h-12 w-32 bg-pink-500 rounded-xl cursor-pointer text-white font-bold"
+      class="h-12 w-32 bg-secondary hover:bg-primary rounded-xl cursor-pointer  font-bold"
       (click)="addNewItem()"
     >
       ADD
