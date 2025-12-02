@@ -1,4 +1,4 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass, NgStyle, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({

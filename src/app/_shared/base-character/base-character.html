@@ -2,7 +2,7 @@
   class="relative flex flex-col items-center"
   [ngClass]="[height, width, color, rounded]"
 >
-  <!-- eyes -->
+  <!-- چشم‌ها -->
   <div class="flex gap-4 mt-6">
     @for( eye of eyePositions; track eye){
     <ng-container>
@@ -22,7 +22,7 @@
     }
   </div>
 
-  <!-- month -->
+  <!-- دهان -->
  @switch (mouthType) {
   @case ('smile') {
     <div class="relative mt-2">
