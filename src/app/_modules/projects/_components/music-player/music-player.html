@@ -2,7 +2,7 @@
   class="min-h-screen w-full flex items-center justify-center text-white p-6"
 >
   <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-    <!--  لیست مورد علاقه‌ها -->
+    <!--  favorite list -->
     <div
       class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]"
     >
@@ -36,14 +36,14 @@
       </div>
     </div>
 
-    <!-- 🎛 پلیر -->
+    <!-- player -->
     <div class="col-span-1 flex items-center justify-center">
       <div
         class="w-full h-full bg-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between p-6 border border-white/20 shadow-xl"
       >
         <audio #audioRef [src]="currentMusic.src"></audio>
 
-        <!-- تصویر آهنگ -->
+        <!-- img -->
         <div class="w-64 h-64 rounded-xl overflow-hidden shadow-md">
           <img
             [src]="currentMusic.img"
@@ -52,7 +52,7 @@
           />
         </div>
 
-        <!-- عنوان و خواننده -->
+        <!-- title and singer -->
         <div class="text-center mt-4">
           <div class="text-white text-xl font-semibold">
             {{ currentMusic.title }}
@@ -60,7 +60,7 @@
           <div class="text-gray-300 text-sm">{{ currentMusic.singer }}</div>
         </div>
 
-        <!-- دکمه‌های کنترل -->
+        <!-- buttons -->
         <div class="flex items-center justify-between w-full px-4 mt-4">
           @for (btn of buttons; track btn.action) {
           <button
@@ -73,7 +73,7 @@
           }
         </div>
 
-        <!-- کنترل ولوم و زمان -->
+        <!-- volome and timme contrile -->
         <div class="w-full mt-6 space-y-4">
           <div class="flex items-center justify-center gap-4">
             <i
@@ -114,7 +114,7 @@
       </div>
     </div>
 
-    <!-- 🎵 لیست آهنگ‌ها -->
+    <!-- play list -->
     <div
       class="col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-lg overflow-y-auto max-h-[32rem]"
     >

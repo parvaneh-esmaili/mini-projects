@@ -1,0 +1,148 @@
+<div class="h-[51rem] w-full flex items-center justify-center">
+  <div
+    class="h-full w-1/2 flex items-end gap-0.5 justify-center relative"
+  >
+    <div class="h-full flex items-end gap-0.5 justify-center">
+      <!-- red one -->
+      <app-base-character
+        color="bg-red-400"
+        height="h-80"
+        width="w-40"
+        rounded="rounded-t-4xl"
+        [eyePositions]="[
+          { x: 100, y: 100 },
+          { x: 160, y: 100 }
+        ]"
+        mouthType="circle"
+      >
+      </app-base-character>
+
+      <!-- yellow one -->
+
+      <app-base-character
+        color="bg-amber-400"
+        height="h-96"
+        width="w-44"
+        rounded="rounded-t-4xl"
+        [eyePositions]="[
+          { x: 220, y: 120 },
+          { x: 280, y: 120 }
+        ]"
+        mouthType="circle"
+      >
+      </app-base-character>
+
+      <!-- orange one -->
+      <app-base-character
+        color="bg-orange-600"
+        height="h-60"
+        width="w-52"
+        [eyePositions]="[
+          { x: 340, y: 140 },
+          { x: 400, y: 140 }
+        ]"
+        mouthType="flat"
+      >
+      </app-base-character>
+    </div>
+
+    <!-- blue one -->
+    <div
+      class="absolute bottom-0 left-1/4 z-50 h-44 w-36 rounded-t-4xl bg-blue-600 flex flex-col items-center"
+    >
+      <app-base-character
+        color="bg-blue-600"
+        height="h-44"
+        width="w-36"
+        [eyePositions]="[
+          { x: 460, y: 160 },
+          { x: 520, y: 160 }
+        ]"
+        mouthType="smile"
+      >
+      </app-base-character>
+    </div>
+  </div>
+
+<div class="h-full w-1/2 flex items-center justify-center">
+  <form class="w-3/5 h-96 py-12 bg-white/10 border-white-20 border shadow-lg rounded-xl p-6 flex flex-col gap-8">
+
+    <!-- title -->
+    <h2 class="text-2xl font-bold text-center "> ورود به حساب کاربری</h2>
+
+    <div class="flex flex-col gap-1">
+      <label for="userName" class="text-sm ">نام کاربری</label>
+      <input id="userName" type="text"
+             [(ngModel)]="loginData.userName" name="userName"
+             class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+    </div>
+
+    <!-- password -->
+    <div class="flex flex-col gap-1">
+      <label for="password" class="text-sm ">رمز عبور</label>
+      <input id="password" type="password"
+             [(ngModel)]="loginData.password" name="password"
+             class="border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+    </div>
+
+    <!-- enter btn -->
+    <button type="button"
+            (click)="onLogin()"
+            class="bg-blue-600 text-white rounded-lg py-2 font-semibold hover:bg-blue-700 active:scale-95 transition duration-300">
+      ورود
+    </button>
+
+
+  </form>
+</div>
+</div>
+<div class="h-full w-1/2 border flex items-end gap-0.5 justify-center relative">
+  <div class="h-full flex items-end gap-0.5 justify-center">
+    <!-- کروم قرمز -->
+    <div
+      class="relative h-80 w-40 rounded-t-full bg-red-400 flex flex-col items-center"
+    >
+      <!-- چشم‌ها -->
+      <div class="flex gap-2 mt-4">
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+      </div>
+      <!-- دهان -->
+      <div class="w-12 h-2 bg-black rounded-full mt-2"></div>
+    </div>
+
+    <!-- کروم زرد -->
+    <div
+      class="relative h-96 w-44 rounded-t-4xl bg-amber-400 flex flex-col items-center"
+    >
+      <div class="flex gap-2 mt-4">
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+      </div>
+      <div class="w-12 h-2 bg-black rounded-full mt-2"></div>
+    </div>
+
+    <!-- کروم نارنجی -->
+    <div
+      class="relative h-60 w-52 rounded-t-full bg-orange-600 flex flex-col items-center"
+    >
+      <div class="flex gap-2 mt-4">
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+        <div class="w-4 h-4 bg-black rounded-full"></div>
+      </div>
+      <div class="w-12 h-2 bg-black rounded-full mt-2"></div>
+    </div>
+  </div>
+
+  <!-- کروم آبی -->
+  <div
+    class="absolute bottom-0 left-1/4 z-50 h-44 w-32 rounded-t-4xl bg-blue-600 flex flex-col items-center"
+  >
+    <div class="flex gap-2 mt-4">
+      <div class="w-4 h-4 bg-black rounded-full"></div>
+      <div class="w-4 h-4 bg-black rounded-full"></div>
+    </div>
+    <div class="w-12 h-2 bg-black rounded-full mt-2"></div>
+  </div>
+</div>
+<div class="flex gap-2 justify-center"></div>

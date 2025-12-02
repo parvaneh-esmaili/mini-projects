@@ -43,6 +43,12 @@ projects = [
     buttonText: 'Generate Password',
     route: '/password-generator',
   },
+    {
+    title: 'login page',
+    description: 'Create strong passwords fast.',
+    buttonText: 'Generate Password',
+    route: '/login-page',
+  },
 ]
 
   navigateToGame(project: string) {

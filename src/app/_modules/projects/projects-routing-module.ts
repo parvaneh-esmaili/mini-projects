@@ -7,6 +7,7 @@ import { TodoList } from './_components/todo-list/todo-list';
 import { LoremMaker } from './_components/lorem-maker/lorem-maker';
 import { QuizApp } from './_components/quiz-app/quiz-app';
 import { PasswordGenerators } from './_components/password-generators/password-generators';
+import { LoginPage } from './_components/login-page/login-page';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'todo-list', component: TodoList },
       { path: 'lurem-maker', component: LoremMaker },
       { path: 'quiz-app', component: QuizApp },
-      { path: 'password-generator', component: PasswordGenerators}
+      { path: 'password-generator', component: PasswordGenerators},
+      { path: 'login-page', component: LoginPage}
     ],
   },
 ];

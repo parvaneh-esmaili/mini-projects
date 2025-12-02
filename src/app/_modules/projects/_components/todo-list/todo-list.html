@@ -8,7 +8,7 @@
     <h2 class="text-lg font-bold mb-2 fas fa-bolt"> N e w</h2>
     <p class="text-sm text-gray-300">Content related to newly added items.</p>
 
-    <!-- دکمه افزودن آیتم -->
+    <!-- add new item btn -->
     <button
       (click)="toggleMenu()"
       class="bg-primary hover:bg-secondary text-white px-4 py-2 text-xs rounded-xl mb-4 fas fa-plus-circle"
@@ -16,7 +16,7 @@
       ADD NEW ITEM
     </button>
 
-    <!-- لیست آیتم‌ها -->
+    <!-- items list -->
     @for( item of newItems; track item ){
     <div
       draggable="true"

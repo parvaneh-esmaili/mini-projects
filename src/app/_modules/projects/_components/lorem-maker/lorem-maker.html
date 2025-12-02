@@ -4,7 +4,7 @@
   <div
     class="bg-surface rounded-xl p-6 border border-white/10 shadow w-full max-w-3xl h-[30rem] overflow-hidden flex flex-col justify-baseline"
   >
-    <!-- عنوان -->
+    <!-- title -->
     <div>
       <h2 class="text-2xl font-bold mb-2 flex items-center gap-3">
         <i class="fas fa-align-left text-secondary"></i>
@@ -16,7 +16,7 @@
       </p>
     </div>
 
-    <!-- دکمه‌ها -->
+    <!-- buttons -->
     <div class="flex items-center gap-4 mb-4">
       @for(btn of buttons; track btn){
       <button
@@ -30,7 +30,7 @@
       }
     </div>
 
-    <!-- آمار -->
+    <!-- status -->
     <div
       class="flex justify-around items-center text-sm mb-4 border border-white/20 rounded-xl h-10 bg-white/10"
     >
@@ -43,7 +43,7 @@
       </p>
     </div>
 
-    <!-- متن لورم -->
+    <!-- lorem text -->
     <div class="space-y-4 max-h-[12rem] overflow-y-auto pr-2">
       <p class="text-gray-200 leading-relaxed whitespace-pre-line">
         {{ loremText }}
