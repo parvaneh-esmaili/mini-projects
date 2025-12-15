@@ -6,6 +6,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   imports: [ReactiveFormsModule],
   templateUrl: './todo-list.html',
   styleUrl: './todo-list.css',
+  standalone: true
 })
 export class TodoList {
   isMenuOpen = false;
@@ -20,15 +21,15 @@ export class TodoList {
     }
   }
 
-  dragStartHandler(event: DragEvent) {
+  dragStartHandler = (event: DragEvent) => {
     this.draggedItem = event.target as HTMLElement;
   }
 
-  dropOverHandler(event: DragEvent) {
+  dropOverHandler = (event: DragEvent) => {
     event.preventDefault();
   }
 
-  dragHandler(event: DragEvent) {
+  dragHandler = (event: DragEvent) => {
     event.preventDefault();
     const dropZone = event.target as HTMLElement;
 
@@ -38,11 +39,11 @@ export class TodoList {
     }
   }
 
-  toggleMenu() {
+  toggleMenu = () => {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  addNewItem() {
+  addNewItem = () => {
     const value = this.item.value!;
     this.newItems.push(value);
     this.isMenuOpen = false;
@@ -50,11 +51,11 @@ export class TodoList {
     localStorage.setItem('newItems', JSON.stringify(this.newItems));
   }
 
-  closeMenu() {
+  closeMenu = () => {
     this.isMenuOpen = false;
   }
 
-  removeItem(itemToRemove: string) {
+  removeItem = (itemToRemove: string) => {
     this.newItems = this.newItems.filter((item) => item !== itemToRemove);
     localStorage.setItem('newItems', JSON.stringify(this.newItems));
   }

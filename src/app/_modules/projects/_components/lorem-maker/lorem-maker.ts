@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './lorem-maker.html',
   styleUrl: './lorem-maker.css',
+  standalone: true
 })
 export class LoremMaker {
   paraNumber = 0;

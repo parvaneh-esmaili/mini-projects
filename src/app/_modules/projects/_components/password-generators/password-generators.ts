@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule, NgClass],
   templateUrl: './password-generators.html',
   styleUrl: './password-generators.css',
+  standalone: true
 })
 export class PasswordGenerators {
   password: string = '';
@@ -63,7 +64,7 @@ export class PasswordGenerators {
     }
 
     this.password = generatedPassword;
-    this.evaluateSecurity(this.password); 
+    this.evaluateSecurity(this.password);
     console.log(this.password);
   }
 

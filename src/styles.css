@@ -26,7 +26,6 @@
   --color-text-muted: var(--text-muted)
 }
 
-@import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @utility container {

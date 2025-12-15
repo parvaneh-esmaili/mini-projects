@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-quiz-app',
   imports: [NgClass, FormsModule],
   templateUrl: './quiz-app.html',
+  standalone: true,
   styleUrl: './quiz-app.css'
 })
 export class QuizApp {

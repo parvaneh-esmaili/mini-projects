@@ -5,6 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'project-card',
   imports: [NgClass],
   templateUrl: './project-card.html',
+  standalone: true,
   styleUrl: './project-card.css'
 })
 export class ProjectCard {

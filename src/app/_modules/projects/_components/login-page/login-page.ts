@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-login-page',
   imports: [BaseCharacter, FormsModule],
   templateUrl: './login-page.html',
+  standalone: true,
   styleUrl: './login-page.css'
 })
 export class LoginPage {
 
-mouseX: number = 0;
+  mouseX: number = 0;
   mouseY: number = 0;
 
   @HostListener('document:mousemove', ['$event'])
@@ -30,7 +31,7 @@ mouseX: number = 0;
     const offsetY = Math.sin(angle) * distance;
     return `translate(${offsetX}px, ${offsetY}px)`;
   }
-  
+
   loginData = {
     userName: '',
     password: ''

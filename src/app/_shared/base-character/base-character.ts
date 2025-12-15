@@ -3,8 +3,9 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-base-character',
-  imports: [NgClass, NgStyle, ],
+  imports: [NgClass, NgStyle,],
   templateUrl: './base-character.html',
+  standalone: true,
   styleUrl: './base-character.css'
 })
 export class BaseCharacter {
